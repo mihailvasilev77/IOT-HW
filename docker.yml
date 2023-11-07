@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  container1:
+    build:
+      context: ./container1
+    ports:
+      - "5000:5000"
+    volumes:
+      - data-volume:/app/data
+    networks:
+      - my-network
+
+  container2:
+    build:
+      context: ./container2
+    networks:
+      - my-network
+
+volumes:
+  data-volume:
+
+networks:
+  my-network:
